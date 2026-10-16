@@ -1,0 +1,33 @@
+/* V13: portals are autonomous previews, not remote iframes.
+   They stay informative when the visitor is offline or a target blocks embedding. */
+.offline-preview { position: relative; width: 100%; height: 100%; overflow: hidden; }
+.found-preview { color: #eee9df; background: radial-gradient(circle at 79% 16%, #8f614e 0 6%, transparent 7%), linear-gradient(125deg, #1a1918 0 46%, #776b60 47% 54%, #292724 55% 100%); }
+.found-preview:before { content: ""; position: absolute; inset: 0; opacity: .22; background: repeating-linear-gradient(90deg, transparent 0 55px, rgba(255,255,255,.32) 56px 57px); }
+.found-preview-inner { position: absolute; z-index: 1; inset: 12% 10%; }
+.found-preview small, .riri-preview small, .alliance-preview small { font: 500 8px var(--mono); letter-spacing: .12em; }
+.found-preview h3 { margin: 12px 0 11px; font: 700 clamp(25px,4.9vw,56px)/.82 var(--sans); letter-spacing: -.1em; }
+.found-preview p { margin: 0; font: 500 8px var(--mono); letter-spacing: .08em; }
+.found-preview button, .alliance-preview button { margin-top: 22px; padding: 9px 12px; border: 1px solid currentColor; background: transparent; color: inherit; font: 500 8px var(--mono); letter-spacing: .06em; }
+.found-stack { position: absolute; right: 2%; bottom: -22%; width: 42%; height: 74%; transform: rotate(-8deg); }
+.found-stack i { position: absolute; display: block; width: 72%; aspect-ratio: .72; border: 1px solid rgba(255,255,255,.26); background: linear-gradient(145deg, #9f7b64, #342d2a 58%, #161616); box-shadow: 9px 11px 0 rgba(0,0,0,.25); }
+.found-stack i:nth-child(1) { left: 23%; top: 9%; background: linear-gradient(145deg, #d1b698, #5b4b42 61%, #25201f); }.found-stack i:nth-child(2) { top: 26%; left: 0; background: linear-gradient(145deg, #756b68, #1f2423 65%); }.found-stack i:nth-child(3) { top: 44%; left: 35%; }
+
+.litos-live-preview { background: #e9edf3; }.litos-live-preview img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; transform: scale(1.008); }
+
+.riri-preview { color: #161616; background: #efe9df; }.riri-preview header { height: 18%; padding: 0 8%; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid #171717; font: 500 8px var(--mono); }.riri-preview header b { font: 700 clamp(12px,2.2vw,24px) var(--sans); letter-spacing: -.08em; }.riri-preview header span { font-size: 7px; }.riri-copy { position: absolute; z-index: 1; left: 8%; top: 28%; }.riri-copy h3 { margin: 11px 0; font: 700 clamp(24px,4.2vw,47px)/.84 var(--sans); letter-spacing: -.1em; }.riri-products { position: absolute; right: 5%; bottom: -10%; width: 55%; height: 73%; transform: rotate(5deg); }.riri-products i { position: absolute; width: 38%; aspect-ratio: .63; border: 1px solid #26231e; background: linear-gradient(155deg, #c8b099, #806b62 41%, #453e3a 42% 100%); box-shadow: 8px 8px 0 rgba(0,0,0,.16); }.riri-products i:nth-child(1) { left: 0; top: 22%; background: linear-gradient(155deg, #2e3b36, #c7c0aa 44%, #715b4e 45%); }.riri-products i:nth-child(2) { left: 32%; top: 1%; }.riri-products i:nth-child(3) { left: 49%; top: 30%; background: linear-gradient(155deg, #8b5d45, #e2c6a3 44%, #603c30 45%); }.riri-products i:nth-child(4) { left: 13%; top: 55%; background: linear-gradient(155deg, #2d2929, #73685e 40%, #c0aa8f 41%); }
+
+.alliance-preview { color: #102135; background: #e7f0f5; }.alliance-preview:before { content: ""; position: absolute; inset: 0; background: linear-gradient(118deg, transparent 0 46%, rgba(79,135,178,.16) 47% 53%, transparent 54%), repeating-linear-gradient(90deg, transparent 0 60px, rgba(63,113,151,.12) 61px 62px); }.alliance-mark { position: absolute; right: 8%; top: 11%; color: #47789f; font: 700 clamp(45px,8vw,96px)/1 var(--sans); letter-spacing: -.13em; }.alliance-copy { position: absolute; z-index: 1; left: 8%; top: 22%; max-width: 58%; }.alliance-copy small { color: #527b9b; }.alliance-copy h3 { margin: 14px 0; font: 700 clamp(22px,3.8vw,43px)/.9 var(--sans); letter-spacing: -.09em; }.alliance-preview button { margin-top: 3px; color: #244b68; }.alliance-cards { position: absolute; z-index: 1; left: 8%; right: 8%; bottom: 9%; display: flex; gap: 8px; }.alliance-cards i { display: block; flex: 1; height: 62px; border: 1px solid rgba(35,74,104,.28); background: linear-gradient(145deg, #fcfdff, #c2d6e4); box-shadow: 6px 7px 0 rgba(31,70,97,.1); }.alliance-cards i:nth-child(2) { background: linear-gradient(145deg, #dcebf2, #89b0c9); }.alliance-cards i:nth-child(3) { background: linear-gradient(145deg, #f5f1e7, #b1c8d4); }
+
+.portal .offline-preview { animation: offline-breathe 8s ease-in-out infinite alternate; }.portal:hover .offline-preview { animation-play-state: paused; }@keyframes offline-breathe { to { transform: scale(1.035); } }
+
+/* On narrow screens the copy and editor become a vertical composition, never layers. */
+@media (max-width: 720px) {
+  .hero { min-height: 0; display: grid; align-items: start; gap: 38px; padding-top: 63px; padding-bottom: 38px; overflow: visible; }
+  .hero-copy { position: relative; max-width: none; z-index: 1; }
+  .hero h1 { font-size: clamp(48px, 14vw, 70px); }
+  .hero-note { max-width: 285px; margin: 24px 0; }
+  .code-atlas { position: relative; inset: auto; right: auto; bottom: auto; width: 100%; aspect-ratio: 1.05; transform: none; margin-left: 4%; }
+  .found-preview-inner { inset: 10% 9%; }.found-preview h3 { font-size: 32px; }.found-preview button { margin-top: 15px; font-size: 7px; }.found-stack { width: 49%; bottom: -13%; }
+  .riri-preview header { padding: 0 7%; }.riri-preview header span { font-size: 5px; }.riri-copy { top: 25%; }.riri-copy h3 { font-size: 29px; }.riri-products { width: 64%; right: -1%; }
+  .alliance-copy { top: 20%; }.alliance-copy h3 { font-size: 27px; }.alliance-cards { bottom: 17%; }.alliance-cards i { height: 45px; }
+}

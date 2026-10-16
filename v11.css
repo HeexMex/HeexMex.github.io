@@ -1,0 +1,12 @@
+/* Desktop copy and the editor occupy separate columns. */
+@media (min-width: 721px) {
+  .hero-copy {
+    width: calc(100% - min(43vw, 560px) - 74px);
+    max-width: 740px;
+  }
+
+  .hero h1 {
+    max-width: 100%;
+    font-size: clamp(50px, 5.75vw, 86px);
+  }
+}

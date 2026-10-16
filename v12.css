@@ -1,0 +1,49 @@
+/* Kyrelix has no embeddable frame, so it gets a complete landing-page preview. */
+.kyrelix-preview {
+  position: absolute;
+  inset: 0;
+  display: block;
+  overflow: hidden;
+  color: #e9edf4;
+  background:
+    radial-gradient(circle at 78% 27%, rgba(115, 142, 183, .36), transparent 0 19%),
+    radial-gradient(circle at 22% 83%, rgba(45, 87, 121, .34), transparent 0 28%),
+    linear-gradient(132deg, #0d1824 0%, #101c2a 46%, #070e17 100%);
+  font-family: var(--sans);
+}
+.kyrelix-preview:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: .52;
+  background-image: linear-gradient(rgba(187, 208, 234, .07) 1px, transparent 1px), linear-gradient(90deg, rgba(187, 208, 234, .07) 1px, transparent 1px);
+  background-size: 36px 36px;
+  mask-image: linear-gradient(150deg, #000, transparent 79%);
+}
+.kyrelix-orbit {
+  position: absolute;
+  right: -13%;
+  top: 10%;
+  width: 58%;
+  aspect-ratio: 1;
+  border: 1px solid rgba(183, 207, 238, .26);
+  border-radius: 50%;
+  box-shadow: 0 0 0 24px rgba(150, 184, 219, .025), 0 0 0 62px rgba(150, 184, 219, .018);
+}
+.kyrelix-orbit:after { content:""; position:absolute; inset:24%; border-radius:50%; border:1px solid rgba(183,207,238,.2); box-shadow:0 0 42px rgba(116,157,204,.22) }
+.kyrelix-topline,.kyrelix-copy,.kyrelix-chat,.kyrelix-foot { position:absolute; z-index:1 }
+.kyrelix-topline { top: 9%; left: 8%; right: 8%; display:flex; justify-content:space-between; align-items:center; font: 500 9px var(--mono); letter-spacing:.15em }
+.kyrelix-topline span { font: 600 clamp(14px,2vw,25px) var(--sans); letter-spacing:-.08em }
+.kyrelix-topline i { font-style:normal; color:#a8bed8; letter-spacing:.05em }
+.kyrelix-topline i:before { content:""; display:inline-block; width:6px; height:6px; margin-right:7px; border-radius:50%; background:#8caed1; box-shadow:0 0 0 4px rgba(140,174,209,.13) }
+.kyrelix-copy { left:8%; top:23%; }
+.kyrelix-copy p { margin:0 0 12px; color:#a8bed8; font:500 9px var(--mono); letter-spacing:.15em }
+.kyrelix-copy h3 { margin:0; font:600 clamp(24px,3.4vw,47px)/.91 var(--sans); letter-spacing:-.085em }
+.kyrelix-copy h3 em { color:#9bb7d8; font:400 1em Georgia,serif }
+.kyrelix-copy small { display:block; margin-top:17px; color:#acb7c5; font:400 clamp(8px,.9vw,12px)/1.55 var(--sans) }
+.kyrelix-chat { right:8%; top:25%; width:35%; min-width:210px; padding:13px; border:1px solid rgba(192,212,235,.32); border-radius:12px; background:rgba(8,16,26,.57); box-shadow:0 17px 40px rgba(0,0,0,.25); backdrop-filter:blur(8px) }
+.kyrelix-chat div { display:flex; align-items:center; gap:7px; padding-bottom:11px; border-bottom:1px solid rgba(192,212,235,.14); font:500 8px var(--mono); color:#bfcee1 }
+.kyrelix-chat div i { width:7px;height:7px;border-radius:50%;background:#9bb7d8;box-shadow:0 0 0 3px rgba(155,183,216,.13) }.kyrelix-chat div span { display:grid;place-items:center;width:17px;height:17px;border:1px solid #96b2d4;border-radius:6px;font:600 9px var(--sans) }.kyrelix-chat div b { margin-left:auto;font-weight:400;color:#91abc9 }
+.kyrelix-chat p { margin:12px 0 0; width:81%; padding:8px 9px; border-radius:3px 10px 10px 10px; background:#1b3048; color:#e4edf7; font-size:clamp(8px,.82vw,11px) }.kyrelix-chat .from-user { margin-left:auto; border-radius:10px 3px 10px 10px; background:#94b0d0; color:#102135; text-align:right }.kyrelix-chat label { display:block; margin-top:14px; padding:9px; border:1px solid rgba(192,212,235,.18); border-radius:7px; color:#8498ae; font:8px var(--mono) }.kyrelix-chat label em { float:right; color:#bdd1e8; font-style:normal }
+.kyrelix-foot { left:8%; right:8%; bottom:8%; display:flex; justify-content:space-between; font:500 8px var(--mono); letter-spacing:.07em; color:#9bafd0 }.kyrelix-foot b { color:#e8eef6; font-weight:500 }
+@media(max-width:720px){.kyrelix-topline{top:7%}.kyrelix-copy{top:21%}.kyrelix-chat{right:7%;top:48%;width:60%;min-width:0;padding:9px}.kyrelix-copy h3{font-size:31px}.kyrelix-foot{bottom:10%;font-size:6px}.kyrelix-chat p{margin-top:8px;padding:6px}.kyrelix-chat label{margin-top:9px;padding:6px}.kyrelix-copy small{margin-top:10px}}

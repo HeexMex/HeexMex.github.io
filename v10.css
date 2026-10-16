@@ -1,0 +1,2 @@
+/* Use the actual loaded first fold of Litos instead of re-drawing its UI. */
+.litos-static{padding:0!important;background:#f1f3f7 url("./assets/litos-live.png") center top/cover no-repeat!important}.litos-static>*{display:none!important}
